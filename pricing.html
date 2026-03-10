@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans | AMV Vault</title>
+    <script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_Z29vZC1naXJhZmZlLTc5LmNsZXJrLmFjY291bnRzLmRldiQ" src="https://good-giraffe-79.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <style>
+        body { background-color: #0b0b0b; color: #fff; font-family: 'Inter', sans-serif; }
+        .pricing-card { background: #161616; border: 1px solid #333; padding: 40px 25px; border-radius: 15px; text-align: center; transition: 0.3s; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .pricing-card:hover { border-color: #D4AF37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1); }
+        .pro-plan { border: 2px solid #D4AF37; background: #1a1a1a; position: relative; overflow: hidden; }
+        .pro-tag { background: #D4AF37; color: #000; font-size: 10px; font-weight: 900; padding: 5px 20px; position: absolute; top: 15px; right: -20px; transform: rotate(45deg); text-transform: uppercase; }
+        .price { font-size: 32px; font-weight: 800; margin-bottom: 15px; color: #fff; }
+        .price span { font-size: 14px; color: #888; font-weight: 400; }
+        
+        /* Fixed Static Gold Button */
+        .btn-gold { background: #D4AF37; color: #111; font-weight: 800; border-radius: 6px; padding: 14px; border: none; width: 100%; text-transform: uppercase; font-size: 13px; cursor: pointer; }
+        .btn-gold:hover { background: #fff; color: #000; }
+        
+        ul { list-style: none; padding: 0; text-align: left; margin-bottom: 25px; }
+        ul li { margin-bottom: 10px; font-size: 13px; color: #ccc; }
+        ul li i { color: #D4AF37; margin-right: 8px; }
+        h3 { font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container py-5 text-center">
+        <h2 class="display-5 font-weight-bold" style="letter-spacing: -1px; text-transform: uppercase;">Select Your <span style="color:#D4AF37">Vault</span></h2>
+        <p class="text-muted mb-5">Empowering South African music with global distribution.</p>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="pricing-card">
+                    <div>
+                        <h3>Artist</h3>
+                        <div class="price" data-base="450.00">R450,00<span>/yr</span></div>
+                        <ul>
+                            <li><i class="fa fa-check"></i> 1 Artist Account</li>
+                            <li><i class="fa fa-check"></i> Unlimited Releases</li>
+                            <li><i class="fa fa-check"></i> 100% Royalties</li>
+                            <li><i class="fa fa-check"></i> Spotify Verified Access</li>
+                        </ul>
+                    </div>
+                    <button onclick="handleSub('Artist')" class="btn-gold">Get Started</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="pricing-card pro-plan">
+                    <div class="pro-tag">Popular</div>
+                    <div>
+                        <h3>Label (5)</h3>
+                        <div class="price" data-base="950.00">R950,00<span>/yr</span></div>
+                        <ul>
+                            <li><i class="fa fa-check"></i> Up to 5 Artists</li>
+                            <li><i class="fa fa-check"></i> Custom Label Hub</li>
+                            <li><i class="fa fa-check"></i> Distributed Analytics</li>
+                            <li><i class="fa fa-check"></i> 100% Royalties</li>
+                        </ul>
+                    </div>
+                    <button onclick="handleSub('Label')" class="btn-gold">Join Vault</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="pricing-card">
+                    <div>
+                        <h3>Label Pro (10)</h3>
+                        <div class="price" data-base="1900.00">R1900,00<span>/yr</span></div>
+                        <ul>
+                            <li><i class="fa fa-check"></i> 10 Artist Spaces</li>
+                            <li><i class="fa fa-star"></i> Priority Tech Support</li>
+                            <li><i class="fa fa-check"></i> Daily Trend Reports</li>
+                            <li><i class="fa fa-check"></i> 100% Royalties</li>
+                        </ul>
+                    </div>
+                    <button onclick="handleSub('LabelPro')" class="btn-gold">Go Pro Elite</button>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="pricing-card">
+                    <div>
+                        <h3 style="color:#D4AF37;">VEVO Vault</h3>
+                        <div class="price" data-base="750.00">R750,00<span>/upload</span></div>
+                        <ul>
+                            <li><i class="fa fa-video-camera"></i> Official VEVO Channel</li>
+                            <li><i class="fa fa-check"></i> Global Distribution</li>
+                            <li><i class="fa fa-check"></i> VEVO Logo Placement</li>
+                            <li><i class="fa fa-check"></i> Video SEO Optimization</li>
+                        </ul>
+                    </div>
+                    <button onclick="handleSub('MusicVideos')" class="btn-gold">Submit Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function handleSub(plan) {
+            localStorage.setItem('pendingPlan', plan);
+            
+            // Logic to direct to specific dashboard spaces
+            if (plan === 'Artist') {
+                window.location.href = "artist-portal.html";
+            } 
+            else if (plan === 'Label') {
+                window.location.href = "label.html";
+            }
+            else if (plan === 'LabelPro') {
+                window.location.href = "label-pro.html";
+            }
+            else if (plan === 'MusicVideos') {
+                window.location.href = "music-video-upload.html";
+            }
+        }
+
+        window.addEventListener('load', async () => {
+            if (window.Clerk) await Clerk.load();
+            try {
+                const geo = await fetch('https://ipapi.co/json/').then(r => r.json());
+                if (geo.currency && geo.currency !== 'ZAR') {
+                    const rates = await fetch(`https://open.er-api.com/v6/latest/ZAR`).then(r => r.json());
+                    const rate = rates.rates[geo.currency];
+                    if (rate) {
+                        document.querySelectorAll('.price').forEach(el => {
+                            const baseZar = parseFloat(el.dataset.base);
+                            const converted = (baseZar * rate).toFixed(2);
+                            const label = el.innerText.includes('yr') ? 'yr' : 'upload';
+                            el.innerHTML = `${geo.currency} ${converted}<span>/${label}</span>`;
+                        });
+                    }
+                }
+            } catch (e) { 
+                console.log("Currency conversion paused."); 
+            }
+        });
+    </script>
+</body>
+</html>

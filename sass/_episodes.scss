@@ -1,0 +1,291 @@
+/*---------------------
+  AMV Catalogue (Episodes)
+-----------------------*/
+.podcast {
+    background-color: #0a0a0a;
+
+    &.podcast--page {
+        padding-bottom: 165px;
+    }
+}
+
+.load__more {
+    padding-top: 30px;
+    text-align: center;
+
+    a {
+        font-size: 14px;
+        color: #ffffff;
+        font-weight: 700;
+        display: inline-block;
+        border: 2px solid #d4af37; /* AMV Signature Gold */
+        padding: 10px 35px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+    }
+}
+
+/*---------------------
+  AMV Release Details
+-----------------------*/
+.episodes-details {
+    padding-bottom: 165px;
+    background-color: #ffffff; /* Clean white for content clarity */
+}
+
+.episodes__details__text {
+    margin-bottom: 45px;
+
+    p {
+        font-size: 17px;
+        line-height: 30px;
+        color: #444444;
+    }
+
+    h4 {
+        color: #111111;
+        font-weight: 700;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        li {
+            list-style: none;
+            font-size: 17px;
+            line-height: 36px;
+            color: #353535;
+            position: relative;
+            padding-left: 18px;
+
+            &:before {
+                position: absolute;
+                left: 0;
+                top: 13px;
+                height: 8px;
+                width: 8px;
+                background: #d4af37; /* Gold accent bullets */
+                border-radius: 50%;
+                content: "";
+            }
+        }
+    }
+}
+
+.episodes__details__pic {
+    margin-bottom: 30px;
+
+    img {
+        min-width: 100%;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+}
+
+.episodes__details__btns {
+    padding: 25px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: 75px;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 20px;
+        height: 60px;
+        width: 1px;
+        background: #d4af37; /* Gold vertical separator */
+        content: "";
+        margin: 0 auto;
+    }
+}
+
+.episodes__details__btns__item {
+    &.episodes__details__btns__item--next {
+        text-align: right;
+    }
+
+    p {
+        font-weight: 700;
+        color: #d4af37;
+        margin-bottom: 5px;
+
+        span {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 17px;
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    h5 {
+        color: #111111;
+        font-weight: 700;
+        font-size: 20px;
+    }
+}
+
+/*---------------------
+  AMV Side Management (Sidebar)
+-----------------------*/
+.sidebar__search {
+    margin-bottom: 45px;
+
+    form {
+        position: relative;
+
+        input {
+            color: #111111;
+            font-size: 14px;
+            padding-left: 20px;
+            height: 46px;
+            width: 100%;
+            border: 1px solid #ebebeb;
+            border-radius: 5px;
+
+            &::placeholder {
+                color: #a6a6a6;
+            }
+        }
+        button {
+            color: #000000;
+            font-size: 16px;
+            width: 46px;
+            height: 46px;
+            background: #d4af37; /* Gold search button */
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    }
+}
+
+.sidebar__categories {
+    margin-bottom: 24px;
+
+    h4 {
+        color: #111111;
+        font-weight: 700;
+        margin-bottom: 20px;
+        border-left: 3px solid #d4af37;
+        padding-left: 15px;
+    }
+
+    ul {
+        li {
+            list-style: none;
+            
+            a {
+                font-size: 18px;
+                color: #353535;
+                font-weight: 600;
+                line-height: 48px;
+                transition: color 0.3s ease;
+                
+                i {
+                    font-size: 14px;
+                    color: #d4af37;
+                    margin-right: 12px;
+                }
+
+                &:hover {
+                    color: #d4af37;
+                }
+            }
+        }
+    }
+}
+
+.sidebar__recent__item {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    display: block;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+
+    h6 {
+        color: #111111;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 26px;
+        margin-bottom: 5px;
+        transition: color 0.3s ease;
+    }
+
+    &:hover h6 {
+        color: #d4af37;
+    }
+
+    p {
+        font-size: 14px;
+        color: #8d8d8d;
+        margin-bottom: 0;
+
+        span {
+            color: #d4af37;
+            margin-right: 5px;
+        }
+    }
+}
+
+.sidebar__banner {
+    text-align: center;
+    border-radius: 10px;
+    padding: 100px 0;
+    margin-bottom: 45px;
+    background-color: #000000;
+    border: 2px solid #d4af37; /* Promotional banner border */
+
+    span {
+        font-size: 16px;
+        color: #d4af37;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    h2 {
+        color: #ffffff;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+.sidebar__tags {
+    h4 {
+        color: #111111;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    a {
+        font-size: 13px;
+        color: #111111;
+        font-weight: 700;
+        display: inline-block;
+        padding: 8px 25px 6px;
+        border: 1px solid #d4af37; /* Gold tag border */
+        margin-right: 6px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+    }
+}

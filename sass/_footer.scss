@@ -1,0 +1,119 @@
+/*---------------------
+  AMV Vault Portal Footer
+-----------------------*/
+.footer {
+  padding-bottom: 60px;
+  background: #050505; /* Deep Vault Dark */
+}
+
+.footer__subscriber {
+  background: #d4af37; /* AMV Signature Gold */
+  padding: 40px;
+  border-radius: 10px;
+  top: -65px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.footer__subscriber__text {
+
+  h3 {
+    color: #000000; /* Dark text on Gold for contrast */
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: #000000;
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+}
+
+.footer__subscriber__form {
+  position: relative;
+  margin-top: 7px;
+
+  input {
+    height: 52px;
+    width: 100%;
+    padding-left: 28px;
+    background: #ffffff;
+    border: none;
+    color: #111111;
+    border-radius: 50px;
+
+    &::placeholder {
+      color: #b7b7b7;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    background: #000000; /* Contrast black button on Gold bar */
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: #333333;
+    }
+  }
+}
+
+.footer__logo {
+  float: left;
+  margin-right: 15px;
+  /* Filter to ensure logo pops if it is dark */
+  filter: brightness(0) invert(1); 
+}
+
+.footer__copyright__text {
+  overflow: hidden;
+  color: #ffffff;
+  margin-bottom: 0;
+  line-height: 31px;
+
+  i {
+    color: #d4af37; /* Gold Heart/Icon */
+  }
+
+  a {
+    color: #d4af37; /* Gold Link */
+    font-weight: 700;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #ffffff;
+    }
+  }
+}
+
+.footer__social {
+  text-align: right;
+
+  a {
+    display: inline-block;
+    font-size: 16px;
+    color: #ffffff;
+    margin-right: 18px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #d4af37; /* Gold hover state */
+      transform: translateY(-3px);
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+  }
+}

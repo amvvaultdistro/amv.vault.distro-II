@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your Space | AMV Vault</title>
+    
+    <link rel="icon" type="image/jpeg" href="img/download.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --gold: #D4AF37; --black: #000; --card: #0a0a0a; }
+        body { 
+            background: var(--black); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            background: radial-gradient(circle at bottom left, #1a1500 0%, #000 100%);
+            padding: 20px;
+        }
+
+        .signup-card {
+            background: var(--card);
+            border: 1px solid #222;
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        }
+
+        .plan-badge {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .gold-input {
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .gold-input:focus {
+            border-color: var(--gold);
+            outline: none;
+            background: #151515;
+        }
+
+        .btn-register {
+            background: var(--gold);
+            color: #000;
+            font-weight: 900;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-register:hover {
+            background: #fff;
+            transform: scale(1.02);
+        }
+
+        .ref-text {
+            font-size: 10px;
+            color: #444;
+            margin-top: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-card">
+        <div class="text-center">
+            <div id="planDisplay" class="plan-badge">Verifying Payment...</div>
+            <h3 class="fw-900 mb-2">CREATE YOUR <span class="gold-text">VAULT</span></h3>
+            <p class="small text-muted mb-4">Set up your credentials to access your distribution space.</p>
+        </div>
+        
+        <form id="signupForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="gold-input" placeholder="FIRST NAME" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="gold-input" placeholder="LAST NAME" required>
+                </div>
+            </div>
+            <input type="text" class="gold-input" placeholder="STAGE NAME / LABEL NAME" required>
+            <input type="email" class="gold-input" placeholder="EMAIL ADDRESS" required>
+            <input type="password" class="gold-input" placeholder="CREATE PASSWORD" required>
+            <input type="password" class="gold-input" placeholder="CONFIRM PASSWORD" required>
+            
+            <button type="submit" class="btn-register">ACTIVATE ACCOUNT</button>
+        </form>
+
+        <div id="refDisplay" class="ref-text">Ref: Scanning...</div>
+    </div>
+
+    <script>
+        // Extract Payment Data from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan') || "Vault Member";
+        const reference = urlParams.get('ref') || "Direct-Entry";
+
+        // Display the Plan and Reference to the user
+        document.getElementById('planDisplay').innerText = plan.replace(/([A-Z])/g, ' $1').trim() + " Plan Activated";
+        document.getElementById('refDisplay').innerText = "Transaction Ref: " + reference;
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = e.target.querySelector('button');
+            btn.innerText = "CREATING SPACE...";
+            btn.disabled = true;
+
+            // Simulate Account Creation
+            setTimeout(() => {
+                alert("Account Created Successfully! Welcome to the Vault.");
+                // Redirect them to the login page so they can sign in for the first time
+                window.location.href = "login.html";
+            }, 2000);
+        });
+    </script>
+
+</body>
+</html>

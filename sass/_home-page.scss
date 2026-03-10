@@ -1,0 +1,263 @@
+/*---------------------
+  AMV Vault Hero Section
+-----------------------*/
+.hero {
+  padding-top: 240px;
+  padding-bottom: 260px;
+  position: relative;
+  background-color: #050505; /* Deep Vault Black */
+
+  .container {
+    padding: 0;
+  }
+}
+
+.hero__text {
+  padding-top: 48px;
+
+  h5 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    span {
+      color: #d4af37; /* AMV Gold */
+      margin-right: 5px;
+    }
+  }
+
+  h2 {
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 70px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+  }
+}
+
+.hero__pic {
+  height: 391px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Add a slight gold glow to hero images */
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));
+}
+
+.single__track {
+  background: rgba(212, 175, 55, 0.1); /* Subtle Gold transparency */
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 35px 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.single__track__item__pic {
+  float: left;
+  margin-right: 20px;
+
+  img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+  }
+}
+
+.single__track__item__text {
+  overflow: hidden;
+  padding-top: 6px;
+
+  h5 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  span {
+    color: #d4af37; /* Gold artist name */
+    font-size: 15px;
+    display: block;
+    font-weight: 600;
+  }
+}
+
+/*---------------------
+  AMV Vault Audio Player
+-----------------------*/
+.jp-play {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  background: #d4af37; /* Gold Play Button */
+  border: none;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:after {
+    position: absolute;
+    display: block;
+    left: 3px;
+    top: -4px;
+    content: "\45";
+    font-family: "ElegantIcons";
+    font-size: 30px;
+    color: #000000; /* Contrast black icon on gold */
+  }
+}
+
+.jp-state-playing .jp-play {
+  &:after {
+    content: "\60"!important;
+    left: 2px;
+    top: -6px;
+    color: #000000;
+  }
+}
+
+.jp-play-bar {
+  background: #d4af37; /* Gold progress bar */
+}
+
+.jp-volume-bar-value {
+  background: #d4af37;
+}
+
+/*---------------------
+  AMV Distribution Catalogue (Podcast replacement)
+-----------------------*/
+.podcast {
+  padding-bottom: 70px;
+  background-color: #ffffff;
+
+  .container {
+    padding: 0;
+  }
+}
+
+.podcast__top {
+  margin-bottom: 45px;
+
+  h2 {
+    color: #111111;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  ul {
+    text-align: right;
+    
+    li {
+      list-style: none;
+      font-size: 18px;
+      font-weight: 700;
+      color: #b7b7b7;
+      display: inline-block;
+      margin-right: 40px;
+      position: relative;
+      padding: 2px 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &.active {
+        color: #d4af37;
+
+        &:after {
+          transform: scale(1);
+        }
+      }
+
+      &:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #d4af37;
+        content: "";
+        transform: scale(0);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}
+
+.podcast__item__text {
+  border: 1px solid #ebebeb;
+  background: #ffffff;
+
+  .heart-icon {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
+
+    &:hover {
+      background: #d4af37;
+      color: #ffffff;
+    }
+  }
+
+  ul li span {
+    color: #d4af37;
+  }
+}
+
+/*---------------------
+  AMV Call To Action
+-----------------------*/
+.callto {
+  padding-top: 110px;
+  padding-bottom: 120px;
+  background: linear-gradient(45deg, #050505, #1a1a1a);
+  border-top: 2px solid #d4af37;
+}
+
+.callto__text {
+  text-align: center;
+
+  h2 {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: #b0b0b0;
+    font-size: 22px;
+    margin-bottom: 45px;
+    
+    strong {
+        color: #d4af37;
+    }
+  }
+}
+
+/*---------------------
+  AMV Latest Releases (Episodes)
+-----------------------*/
+.episodes__text {
+  p span {
+    color: #d4af37;
+    font-weight: 700;
+  }
+}
+
+.episodes__item {
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    
+    .tags, .time {
+        background: rgba(212, 175, 55, 0.8);
+        color: #000000;
+    }
+}

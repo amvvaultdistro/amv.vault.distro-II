@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Successful | AMV Vault</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --vault-gold: #D4AF37; --dark-bg: #050505; }
+        body { background: var(--dark-bg); color: #fff; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        
+        .success-container { text-align: center; max-width: 500px; padding: 40px; }
+        
+        /* Animated Checkmark */
+        .checkmark-wrapper { width: 100px; height: 100px; margin: 0 auto 30px; position: relative; }
+        .checkmark-circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: var(--vault-gold); fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+        .checkmark { width: 100px; height: 100px; border-radius: 50%; display: block; stroke-width: 2; stroke: #fff; stroke-miterlimit: 10; box-shadow: inset 0px 0px 0px var(--vault-gold); animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
+        .checkmark-check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }
+
+        @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 50px var(--vault-gold); } }
+
+        .status-badge { background: rgba(212, 175, 55, 0.1); color: var(--vault-gold); border: 1px solid var(--vault-gold); padding: 5px 15px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+        
+        h1 { font-weight: 900; font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 15px; }
+        p { color: #888; line-height: 1.6; margin-bottom: 30px; }
+        
+        .btn-vault { background: #fff; color: #000; font-weight: 900; border: none; padding: 15px 35px; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: 0.3s; }
+        .btn-vault:hover { background: var(--vault-gold); transform: translateY(-3px); }
+        
+        .timeline { text-align: left; background: #0c0c0c; border: 1px solid #1a1a1a; padding: 20px; border-radius: 12px; font-size: 13px; }
+        .step { display: flex; align-items: center; margin-bottom: 10px; color: #555; }
+        .step.active { color: var(--vault-gold); font-weight: 700; }
+        .dot { height: 8px; width: 8px; background: #333; border-radius: 50%; margin-right: 12px; }
+        .step.active .dot { background: var(--vault-gold); box-shadow: 0 0 10px var(--vault-gold); }
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <div class="checkmark-wrapper">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+
+        <div class="status-badge">Phase 1 Complete</div>
+        <h1>MASTERPIECE <span style="color: var(--vault-gold);">LOCKED.</span></h1>
+        <p>Your track has been safely ingested into the Vault. Our A&R team is currently performing a high-fidelity quality check.</p>
+
+        <div class="timeline mb-4">
+            <div class="step active"><div class="dot"></div> Upload Received</div>
+            <div class="step"><div class="dot"></div> A&R Content Review (24h)</div>
+            <div class="step"><div class="dot"></div> Global Store Delivery</div>
+        </div>
+
+        <a href="artist-portal.html" class="btn-vault">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMV Vault | Durban's Global Music Gateway</title>
+
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" type="image/jpeg" href="img/download.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+    <style>
+        :root { 
+            --gold: #D4AF37; 
+            --black: #000; 
+            --card: #0a0a0a; 
+            --gray: #111; 
+            --glass: rgba(0, 0, 0, 0.85);
+            --text-color: #ffffff;
+            --hero-bg: radial-gradient(circle at top right, #1a1500 0%, #000 70%);
+        }
+
+        [data-theme="light"] {
+            --black: #f8f9fa;
+            --gold: #1a1a1a;
+            --card: #ffffff;
+            --gray: #dee2e6;
+            --glass: rgba(255, 255, 255, 0.9);
+            --text-color: #1a1a1a;
+            --hero-bg: #ffffff;
+        }
+
+        body { 
+            background: var(--black); 
+            color: var(--text-color); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        
+        .header { 
+            background: var(--glass); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--gold); 
+            padding: 12px 0; 
+            position: fixed; 
+            width: 100%; 
+            z-index: 1000; 
+        }
+
+        .gold-text { color: var(--gold); font-weight: 900; }
+        
+        /* Professional Theme Toggle (Top Left) */
+        .theme-icon-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+        .theme-icon-btn:hover { background: var(--gold); color: var(--black); }
+
+        .nav-btn { 
+            color: var(--text-color); 
+            font-weight: 700; 
+            font-size: 10px; 
+            text-decoration: none; 
+            border: 1px solid var(--gold); 
+            padding: 6px 14px; 
+            border-radius: 4px; 
+            transition: 0.3s; 
+            text-transform: uppercase; 
+            margin-left: 6px; 
+            cursor: pointer; 
+            background: transparent; 
+        }
+        .nav-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+        
+        #installApp { display: none; background: var(--gold); color: #000; }
+
+        .hero-section { padding: 160px 0 80px; background: var(--hero-bg); }
+        .hero-video { width: 100%; border-radius: 20px; border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+        .billboard-section { background: var(--black); padding: 60px 0; border-top: 1px solid var(--gray); border-bottom: 1px solid var(--gray); }
+        .billboard-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scrollbar-width: none; }
+        .billboard-container::-webkit-scrollbar { display: none; }
+        .billboard-img { min-width: 320px; height: 450px; object-fit: cover; border-radius: 15px; border: 1px solid var(--gray); transition: 0.5s; }
+
+        .vault-player { background: rgba(20, 20, 20, 0.1); border: 1px solid var(--gold); border-radius: 15px; padding: 20px; margin-top: 30px; backdrop-filter: blur(10px); }
+        .track-item { display: flex; align-items: center; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s; color: var(--text-color); }
+        .track-item:hover, .track-item.active { background: rgba(212, 175, 55, 0.15); border: 1px solid var(--gold); }
+        
+        .pricing-card { 
+            background: var(--card); 
+            border: 1px solid var(--gray); 
+            padding: 40px 25px; 
+            border-radius: 20px; 
+            transition: 0.4s; 
+            text-align: center; 
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .pricing-card.reveal { opacity: 1; transform: translateY(0); }
+        .price-tag { font-size: 32px; font-weight: 900; margin: 15px 0; color: var(--gold); }
+        .btn-paystack { background: var(--gold); color: var(--black); font-weight: 900; padding: 14px; border-radius: 8px; border: none; width: 100%; font-size: 11px; cursor: pointer; }
+
+        .modal-content { background: var(--black); border: 1px solid var(--gold); color: var(--text-color); border-radius: 20px; }
+        footer { border-top: 1px solid var(--gray); padding: 60px 0; background: var(--black); }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <button class="theme-icon-btn" onclick="toggleTheme()" title="Switch Theme">
+                    <i class="fa fa-adjust"></i>
+                </button>
+                <h4 class="gold-text m-0" style="letter-spacing: 2px; font-size: 18px;">AMV VAULT</h4>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <button class="nav-btn" id="installApp">INSTALL</button>
+                <button class="nav-btn d-none d-md-block" data-bs-toggle="modal" data-bs-target="#teamModal">TEAM</button>
+                <button class="nav-btn" data-bs-toggle="modal" data-bs-target="#contactModal">CONTACT</button>
+                <a href="login.html" class="nav-btn" style="background: rgba(212, 175, 55, 0.1);">LOGIN</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 style="font-size: clamp(40px, 8vw, 65px); font-weight: 900; line-height: 0.9;">
+                        DURBAN'S <br>
+                        <span id="typewriter" class="gold-text"></span><span style="border-right: 3px solid var(--gold); animation: blink 0.7s infinite;"></span> <br>
+                        GATEWAY.
+                    </h1>
+                    <p class="mt-4 fw-bold opacity-75">Tripling your reach, tripling your impact from the 031 to the world.</p>
+                    
+                    <div class="vault-player">
+                        <div class="track-item active" onclick="playTrack('music/1.mp3', this)">
+                            <i class="fa fa-play-circle me-3" style="color:var(--gold); font-size: 20px;"></i>
+                            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase;">01. KILLER VIBE - AMAPIANO MASTER</div>
+                        </div>
+                        <audio id="mainAudio" src="music/1.mp3"></audio>
+                    </div>
+
+                    <div class="mt-5">
+                        <a href="#pricing" class="btn btn-warning fw-900 px-5 py-3 rounded-pill" style="background: var(--gold); border:none; color:var(--black); font-size: 12px;">CLAIM YOUR SPOT</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0 text-center">
+                    <img src="img/hero-video..gif" class="hero-video" alt="Vault Animation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="billboard-section">
+        <div class="container">
+            <h3 class="gold-text mb-5 text-center" style="letter-spacing: 4px; font-weight: 900; font-size: 14px;">MOST TRENDING DURBAN SOURCE</h3>
+            <div class="billboard-container" id="billboardScroll">
+                <img src="img/b1.jpg" class="billboard-img">
+                <img src="img/b2.jpg" class="billboard-img">
+                <img src="img/b3.jpg" class="billboard-img">
+                <img src="img/b1.jpg" class="billboard-img">
+                <img src="img/b2.jpg" class="billboard-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="pricing-card">
+                        <h6 class="fw-900 mb-3">ARTIST</h6>
+                        <div class="price-tag">R 450,00</div>
+                        <p class="small opacity-75">Unlimited Distribution</p>
+                        <button class="btn-paystack" onclick="payWithPaystack(450, 'Artist', 'artist-portal.html')">GET STARTED</button>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <h2 class="gold-text mb-3 fw-900" style="letter-spacing: 5px;">AMV VAULT</h2>
+            <p class="opacity-50 small">&copy; 2026 | THE GLOBAL STANDARD FOR INDEPENDENT TALENT.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. SMART THEME LOGIC ---
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('vault-theme', theme);
+        }
+        function toggleTheme() {
+            const current = localStorage.getItem('vault-theme') || 'dark';
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        }
+        setTheme(localStorage.getItem('vault-theme') || 'dark');
+
+        // --- 2. BILLBOARD STOP LOGIC ---
+        const scrollContainer = document.getElementById('billboardScroll');
+        let billboardPaused = false;
+
+        const billboardInterval = setInterval(() => {
+            if (!billboardPaused && scrollContainer) {
+                if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth)) {
+                    scrollContainer.scrollLeft = 0;
+                } else {
+                    scrollContainer.scrollLeft += 1;
+                }
+            }
+        }, 30);
+
+        // Stop billboard when user is interacting with the gallery
+        scrollContainer.addEventListener('mouseenter', () => billboardPaused = true);
+        scrollContainer.addEventListener('mouseleave', () => billboardPaused = false);
+
+        // --- 3. TYPEWRITER ---
+        const words = ["WORLDWIDE", "GLOBAL", "PREMIUM", "UNLIMITED"];
+        let wordIdx = 0, charIdx = 0, isDeleting = false;
+        function type() {
+            const target = document.getElementById("typewriter");
+            const currentWord = words[wordIdx];
+            target.textContent = isDeleting ? currentWord.substring(0, charIdx - 1) : currentWord.substring(0, charIdx + 1);
+            charIdx = isDeleting ? charIdx - 1 : charIdx + 1;
+            let speed = isDeleting ? 100 : 150;
+            if (!isDeleting && charIdx === currentWord.length) { isDeleting = true; speed = 2000; }
+            else if (isDeleting && charIdx === 0) { isDeleting = false; wordIdx = (wordIdx + 1) % words.length; speed = 500; }
+            setTimeout(type, speed);
+        }
+        window.addEventListener('DOMContentLoaded', type);
+
+        // --- 4. SCROLL REVEAL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => { entry.target.classList.add('reveal'); }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.pricing-card').forEach(card => observer.observe(card));
+
+        // --- 5. AUDIO & PAYSTACK ---
+        function playTrack(src, element) {
+            const audio = document.getElementById('mainAudio');
+            document.querySelectorAll('.track-item').forEach(i => i.classList.remove('active'));
+            element.classList.add('active');
+            audio.src = src; audio.play().catch(() => {});
+        }
+
+        function payWithPaystack(amount, plan, url) {
+            let handler = PaystackPop.setup({
+                key: 'pk_test_9afd0a9571c4cef89488f9e007669fd9189535b4',
+                email: 'amvvaultdistro@gmail.com',
+                amount: Math.round(amount * 100),
+                currency: 'ZAR',
+                callback: () => { window.location.href = url; }
+            });
+            handler.openIframe();
+        }
+    </script>
+</body>
+</html>

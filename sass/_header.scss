@@ -1,0 +1,198 @@
+/*---------------------
+    AMV Vault Header
+-----------------------*/
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Subtle Gold border */
+
+    &.header--normal {
+        position: relative;
+        background: #1a1a1a; /* Professional Deep Charcoal */
+    }
+}
+
+.header__logo {
+    padding: 25px 0;
+    display: inline-block;
+    margin-right: 250px;
+
+    a {
+        display: inline-block;
+    }
+}
+
+.header__menu {
+    display: inline-block;
+
+    ul {
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 45px;
+            position: relative;
+
+            &.active {
+                a {
+                    color: #d4af37; /* Gold for active page */
+                    &:after {
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                    }
+                }
+            }
+
+            &:hover {
+                a {
+                    color: #d4af37;
+                    &:after {
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                    }
+                }
+
+                .dropdown {
+                    top: 82px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .dropdown {
+                position: absolute;
+                left: 0;
+                top: 110px;
+                width: 180px; /* Slightly wider for distribution terms */
+                background: #111111; /* Darker dropdown background */
+                text-align: left;
+                padding: 10px 0;
+                z-index: 9;
+                opacity: 0;
+                visibility: hidden;
+                border-top: 2px solid #d4af37;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                transition: all, .3s;
+
+                li {
+                    display: block;
+                    margin-right: 0;
+
+                    a {
+                        font-size: 14px;
+                        color: #ffffff;
+                        font-weight: 400;
+                        padding: 8px 20px;
+                        text-transform: capitalize;
+
+                        &:hover {
+                            color: #d4af37;
+                            background: rgba(212, 175, 55, 0.05);
+                        }
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            a {
+                font-size: 18px;
+                font-weight: 700;
+                color: #ffffff;
+                display: block;
+                padding: 26px 0 28px;
+                position: relative;
+                transition: color 0.3s ease;
+
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 100%;
+                    height: 2px;
+                    background: #d4af37; /* AMV Signature Gold */
+                    content: '';
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                    transition: all, .5s;
+                }
+            }
+        }
+    }
+}
+
+.header__right {
+    padding: 25px 0;
+    text-align: right;
+}
+
+.header__right__search {
+    display: inline-block;
+    margin-right: 130px;
+
+    form {
+        width: 225px;
+        position: relative;
+
+        input {
+            width: 100%;
+            height: 30px;
+            font-size: 16px;
+            color: #ffffff;
+            opacity: .6;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+
+            &::placeholder {
+                color: #ffffff;
+            }
+            
+            &:focus {
+                opacity: 1;
+                border-bottom-color: #d4af37;
+            }
+        }
+
+        button {
+            font-size: 16px;
+            color: #d4af37;
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+}
+
+.header__right__social {
+    display: inline-block;
+
+    a {
+        display: inline-block;
+        font-size: 16px;
+        color: #ffffff;
+        margin-right: 18px;
+        transition: all, .3s;
+
+        &:hover {
+            color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

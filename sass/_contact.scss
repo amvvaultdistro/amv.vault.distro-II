@@ -1,0 +1,132 @@
+/*---------------------
+  AMV Vault Support (Contact)
+-----------------------*/
+.contact {
+  padding-bottom: 165px;
+  background-color: #0a0a0a; /* Dark professional background */
+}
+
+.contact__map {
+  height: 500px;
+  margin-bottom: 30px;
+  filter: grayscale(100%) invert(90%) contrast(90%); /* Stylized dark map to match brand */
+
+  iframe {
+    width: 100%;
+    border: none;
+  }
+}
+
+.contact__widget__item {
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.2); /* Gold-tinted border */
+  background: #111111;
+  padding: 55px 40px 40px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #d4af37;
+    transform: translateY(-5px);
+  }
+
+  /* Assuming icons are in spans or i tags */
+  span.icon_pin_alt, span.icon_phone, span.icon_mail_alt {
+    font-size: 40px;
+    color: #d4af37; /* AMV Gold Icons */
+  }
+
+  h4 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: #b0b0b0;
+    margin-bottom: 0;
+
+    span {
+      display: block;
+      color: #d4af37; /* Highlighted contact info */
+      font-weight: 600;
+    }
+  }
+}
+
+.contact__form {
+  padding-top: 60px;
+
+  h2 {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 45px;
+    text-align: center;
+  }
+
+  form {
+    input {
+      height: 50px;
+      width: 100%;
+      font-size: 15px;
+      color: #ffffff;
+      background: #1a1a1a; /* Darker inputs */
+      border: 1px solid #333333;
+      padding-left: 20px;
+      border-radius: 5px;
+      margin-bottom: 30px;
+      transition: border-color 0.3s ease;
+
+      &::placeholder {
+        color: #666666;
+      }
+
+      &:focus {
+        border-color: #d4af37; /* Gold focus border */
+      }
+    }
+
+    textarea {
+      height: 150px;
+      width: 100%;
+      font-size: 15px;
+      color: #ffffff;
+      background: #1a1a1a;
+      border: 1px solid #333333;
+      padding-left: 20px;
+      border-radius: 5px;
+      margin-bottom: 34px;
+      padding-top: 14px;
+      resize: none;
+      transition: border-color 0.3s ease;
+
+      &::placeholder {
+        color: #666666;
+      }
+
+      &:focus {
+        border-color: #d4af37;
+      }
+    }
+
+    button {
+      background: #d4af37;
+      color: #000000;
+      border: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 5px;
+      padding: 14px 38px 12px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #ffffff; /* Contrast hover */
+        color: #000000;
+      }
+    }
+  }
+}

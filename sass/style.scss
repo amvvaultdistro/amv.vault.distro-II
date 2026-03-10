@@ -1,0 +1,30 @@
+/*--------------------------------------------------
+  AMV Vault (Abantu Musik Vault) Main Stylesheet
+  Identity: Music Distribution & Artist Management
+  Brand Colors: Gold (#d4af37) & Charcoal (#1a1a1a)
+---------------------------------------------------*/
+
+/* Global Variables & Mixins (Updated to AMV Gold Palette) */
+@import "variable"; 
+@import "mixins";
+
+/* Core UI Structure */
+@import "base";
+@import "header";         /* Vault Navigation & Login */
+
+/* Distribution Hub & Artist Features */
+@import "home-page";      /* Hero & Main Call-to-Action */
+@import "breadcrumb";      /* Navigation Hierarchy */
+@import "about";           /* Our Distribution Network */
+@import "episodes";        /* Latest Music Releases & Artist Spotlights */
+
+/* Music News & Insights */
+@import "blog";            /* Industry News & Distribution Tips */
+@import "blog-details";    /* Full Article Views */
+
+/* Support & Global Footer */
+@import "contact";         /* Submit Music / Artist Support */
+@import "footer";          /* AMV Global Footer & Subscriber Box */
+
+/* Cross-Platform Optimization */
+@import "responsive";      /* Mobile & Tablet Distribution UI */

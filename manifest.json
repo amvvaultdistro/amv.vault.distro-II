@@ -1,0 +1,12 @@
+{
+  "name": "AMV Vault",
+  "short_name": "Vault",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#D4AF37",
+  "icons": [
+    { "src": "img/download.jpg", "sizes": "192x192", "type": "image/jpeg" },
+    { "src": "img/download.jpg", "sizes": "512x512", "type": "image/jpeg" }
+  ]
+}
